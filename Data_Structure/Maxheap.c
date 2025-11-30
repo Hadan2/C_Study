@@ -104,7 +104,9 @@ int main(void) {
     scanf("%d", &N);
     MaxHeap myHeap;
     initHeap(&myHeap, N+2);
-
+    MaxHeap* p;
+    p = &myHeap;
+    
     int input;
     
     for (int i = 0; i < N; i++) {
