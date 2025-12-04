@@ -15,19 +15,10 @@ typedef struct
 typedef int (*CalcFunc)(int, int);
 
 int my_ntohl(int n) {
-    unsigned char bytes[4];
-    int ret;
-    bytes[0] = (unsigned char)((n>>24)&0xff);
-    bytes[1] = (unsigned char)((n>>16)&0xff);
-    bytes[2] = (unsigned char)((n>>8)&0xff);
-    bytes[3] = (unsigned char)((n>>0)&0xff);
-
-    ret = ((int)bytes[0]<<0 | 
-           (int)bytes[1]<<8 |
-           (int)bytes[2]<<16 |
-           (int)bytes[3]<<24 );
-
-    return ret;
+    return ((n & 0xFF000000) >> 24) |
+           ((n & 0x00FF0000) >> 8)  |
+           ((n & 0x0000FF00) << 8)  |
+           ((n & 0x000000FF) << 24);
     
 }
 
