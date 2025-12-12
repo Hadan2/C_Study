@@ -11,7 +11,8 @@ int r_top=0;
 int main () {
     char str[1000001];
     scanf("%s", str);
-    for(int i=0; i<strlen(str); i++) {
+    int len= strlen(str);
+    for(int i=0; i<len; i++) {
         left_stack[l_top++] = str[i];
     }
 
